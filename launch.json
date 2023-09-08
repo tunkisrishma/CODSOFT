@@ -1,0 +1,52 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "NumberGuessingGame",
+            "request": "launch",
+            "mainClass": "NumberGuessingGame",
+            "projectName": "bvrit_96482ae3"
+        }
+    ]
+}
+import java.util.Scanner;
+public class NumberGuessingGame{
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        int secret = (int) (Math.random() * 100) + 1;
+        int guessCount = 0;
+        int guessLimit = 2;
+        System.out.println("A Number between 1 and 100.");
+        while (guessCount < guessLimit) {
+            System.out.print("Predict the Number: ");
+            int guess = scanner.nextInt();
+            guessCount++;
+            if (guess == secret) 
+            {
+                System.out.println("Congratulations! You predicted the number in " + guessCount + " guesses.");
+                break;
+            } else if (guess < secret)
+            {
+                System.out.println("Predicted Number is Low");
+            } else 
+            {
+                System.out.println("Predicted Number is High");
+            }
+        }
+        if (guessCount == guessLimit)
+        {
+            System.out.println("You have run out of guesses. The number predicted is " + secret + ".");
+        }
+    }
+}
